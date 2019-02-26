@@ -20,15 +20,22 @@ package cse360assign2;
  * 
  *
  */ 
-class Calculator {
+public class Calculator {
 
 	/**
 	 * Integer that represents the answer to the user input.
 	 */
 	private int total;
 	
+	/**
+	 * String that holds all of the operations done when computing
+	 * the total.
+	 */
+	private String history;
+	
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		this.history = "0";
 	}
 	
 	 /**
@@ -36,7 +43,7 @@ class Calculator {
 	  * @return The total of the calculator.
 	  */
 	public int getTotal () {
-		return this.total;
+		return total;
 	}
 	
 	
@@ -47,6 +54,7 @@ class Calculator {
 	 */
 	public void add (int value) {
 		this.total += value;
+		this.history += (" + " + value);
 	}
 	
 	/**
@@ -57,6 +65,9 @@ class Calculator {
 	 */
 	public void subtract (int value) {
 		this.total -= value;
+		this.history += (" - " + value);
+		
+		
 	}
 	
 	/**
@@ -67,6 +78,7 @@ class Calculator {
 	 */
 	public void multiply (int value) {
 		this.total *= value;
+		this.history += (" * " + value);
 	}
 	
 	/**
@@ -76,10 +88,12 @@ class Calculator {
 	 * total.
 	 */
 	public void divide (int value) {
-		if(value == 0) {
-			this.total = 0;
-		} else {	
+		if(value != 0) {
 			this.total /= value;
+			this.history += (" / " + value);
+		} else {	
+			this.total = 0;
+			this.history += (" / " + value);
 		}
 	}
 	
@@ -90,6 +104,6 @@ class Calculator {
 	 * calculator performed to get the answer.
 	 */
 	public String getHistory () {
-		return "";
+		return this.history;
 	}
 }
