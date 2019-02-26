@@ -33,10 +33,10 @@ class Calculator {
 	
 	 /**
 	  * Displays current value of the integer total in the Calculator object.
-	  * @return 
+	  * @return The total of the calculator.
 	  */
 	public int getTotal () {
-		return 0;
+		return this.total;
 	}
 	
 	
@@ -46,7 +46,7 @@ class Calculator {
 	 * @param value The user inputed value to be added to the integer total.
 	 */
 	public void add (int value) {
-		
+		this.total += value;
 	}
 	
 	/**
@@ -56,7 +56,7 @@ class Calculator {
 	 * total.
 	 */
 	public void subtract (int value) {
-		
+		this.total -= value;
 	}
 	
 	/**
@@ -66,7 +66,7 @@ class Calculator {
 	 * total.
 	 */
 	public void multiply (int value) {
-		
+		this.total *= value;
 	}
 	
 	/**
@@ -76,7 +76,11 @@ class Calculator {
 	 * total.
 	 */
 	public void divide (int value) {
-		
+		if(value == 0) {
+			this.total = 0;
+		} else {	
+			this.total /= value;
+		}
 	}
 	
 	/**
